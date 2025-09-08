@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Al Mamun - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --dark-color: #202124;
+            --light-color: #f8f9fa;
+            --text-color: #5f6368;
+            --section-padding: 80px 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #0d62d9;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: var(--section-padding);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light-color);
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 2;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .personal-info {
+            margin-top: 30px;
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .info-item i {
+            color: var(--primary-color);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 20px;
+        }
+        
+        /* Education Section */
+        .education-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .education-item h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .education-item .institution {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .education-item .date {
+            color: var(--text-color);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .education-item .description {
+            margin-bottom: 10px;
+        }
+        
+        .education-item .gpa {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        /* Experience Section */
+        .experience {
+            background-color: var(--light-color);
+        }
+        
+        .experience-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .experience-item h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .experience-item .company {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .experience-item .date {
+            color: var(--text-color);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        /* Research Section */
+        .research-interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .interest-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .research-experience {
+            margin-top: 40px;
+        }
+        
+        .research-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .research-item h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .research-item .topic {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        /* Publications Section */
+        .publications {
+            background-color: var(--light-color);
+        }
+        
+        .publication-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .publication-item h4 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .publication-item .authors {
+            margin-bottom: 10px;
+        }
+        
+        .publication-item .venue {
+            color: var(--primary-color);
+            font-style: italic;
+        }
+        
+        .publication-item .status {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        
+        .status.accepted {
+            background-color: rgba(52, 168, 83, 0.2);
+            color: var(--secondary-color);
+        }
+        
+        .status.submitted {
+            background-color: rgba(26, 115, 232, 0.2);
+            color: var(--primary-color);
+        }
+        
+        /* Projects Section */
+        .project-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-item h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .project-item .year {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Skills Section */
+        .skills {
+            background-color: var(--light-color);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .skill-category h3 {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+        
+        .contact-item span {
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Abdullah Al Mamun</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Abdullah Al Mamun</h1>
+            <p>Ph.D. Student in Electrical Engineering</p>
+            <p>Florida Institute of Technology</p>
+            <a href="#about" class="btn">Learn More About Me</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/300" alt="Abdullah Al Mamun">
+                </div>
+                <div class="about-text">
+                    <h3>Electrical Engineering Researcher</h3>
+                    <p>I am a dedicated Ph.D. student in Electrical Engineering at Florida Institute of Technology with a strong background in wireless communications, physical layer security, and intelligent surfaces. My research focuses on enhancing the security of wireless communications using deep reinforcement learning.</p>
+                    <p>With a Bachelor's degree in Electrical & Electronic Engineering and experience as a lecturer, I bring both academic knowledge and teaching skills to my research endeavors.</p>
+                    
+                    <div class="personal-info">
+                        <div class="info-item">
+                            <i class="fas fa-user"></i>
+                            <span>Male, Born on June 30, 2001</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>204 Cartier Avenue, Melbourne, FL 32901, USA</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>mamun.fit.wireless@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (321) 367 2807</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            
+            <div class="education-item">
+                <h3>Ph.D. in Electrical Engineering</h3>
+                <div class="institution">Florida Institute of Technology</div>
+                <div class="date">Jan 2025 – Present</div>
+                <div class="description">Ongoing Ph.D. program with focus on Physical Layer Security of Wireless Communications using Deep Reinforcement Learning.</div>
+                <div class="gpa">GPA: 4.00/4.00 (12 credits course work)</div>
+            </div>
+            
+            <div class="education-item">
+                <h3>B.Sc. in Electrical & Electronic Engineering</h3>
+                <div class="institution">Rajshahi University of Engineering & Technology, Bangladesh</div>
+                <div class="date">Feb 2019 – May 2024</div>
+                <div class="description">Undergraduate thesis on "Ergodic Secrecy Capacity of Wireless Networks with Reconfigurable Intelligent Surface"</div>
+                <div class="gpa">CGPA: 3.82/4.00</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Graduate Teaching Assistant</h3>
+                <div class="company">Florida Institute of Technology</div>
+                <div class="date">Jan 2025 – Present</div>
+                <div class="description">Assisting in teaching undergraduate and graduate courses in Electrical Engineering department at Florida Institute of Technology.</div>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Lecturer</h3>
+                <div class="company">Uttara University, Bangladesh</div>
+                <div class="date">Aug 2024 – Dec 2024</div>
+                <div class="description">Taught courses in Electrical and Electronic Engineering department, focusing on wireless communications and signal processing.</div>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Industrial Internship</h3>
+                <div class="company">Ghorashal Power Station, Bangladesh Power Development Board</div>
+                <div class="date">April 2023</div>
+                <div class="description">Completed industrial internship at Ghorashal Power Station, gaining practical experience in power generation and distribution systems.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="research">
+        <div class="container">
+            <div class="section-title">
+                <h2>Research</h2>
+            </div>
+            
+            <div class="research-interests">
+                <div class="interest-tag">Wireless Communication</div>
+                <div class="interest-tag">Physical Layer Security (PLS)</div>
+                <div class="interest-tag">Intelligent Surface</div>
+                <div class="interest-tag">Deep Reinforcement Learning</div>
+                <div class="interest-tag">Fiberoptic Communication</div>
+            </div>
+            
+            <div class="research-experience">
+                <div class="research-item">
+                    <h3>PhD Research (Ongoing)</h3>
+                    <div class="topic">Physical Layer Security of Wireless Communications using Deep Reinforcement Learning</div>
+                    <p>Current research focuses on enhancing the security of wireless communication systems through the application of deep reinforcement learning techniques. The research aims to develop novel approaches to mitigate security threats in modern wireless networks.</p>
+                    <p><strong>Publications:</strong> One Journal paper (submitted) and one conference paper (submitted)</p>
+                </div>
+                
+                <div class="research-item">
+                    <h3>Undergraduate Thesis</h3>
+                    <div class="topic">Ergodic Secrecy Capacity of Wireless Networks with Reconfigurable Intelligent Surface</div>
+                    <p><strong>Thesis Objective:</strong> The proposed research derived the closed form expressions of Ergodic Secrecy Capacity with RIS at the presence of single and multiple eavesdroppers. It aims to analysis the security of wireless networks with RIS and without RIS.</p>
+                    <p><strong>Area:</strong> Wireless Networks</p>
+                    <p><strong>Publications:</strong> Two Conference Papers</p>
+                    <p><strong>Supervisor:</strong> Dr. Zahurul Islam Sarkar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Publications</h2>
+            </div>
+            
+            <div class="publication-item">
+                <h4>Security Analysis for STAR-RIS-NOMA Networks under Colluding and Non-colluding Eavesdroppers</h4>
+                <div class="authors">Abdullah Al Mamun, Neji Mensi, Danda B. Rawat</div>
+                <div class="venue">Journal Paper (Completed, to be submitted)</div>
+                <span class="status submitted">To be Submitted</span>
+            </div>
+            
+            <div class="publication-item">
+                <h4>High Amplitude Sensitivity Anti-resonant Solid-core Fiber Plasmonic Sensor for Ultra-low Refractive Index Detection</h4>
+                <div class="authors">Mohammad Al Mahfuz, Abdullah Al Mamun, Pravallika Kante, and Md Selim Habib</div>
+                <div class="venue">IEEE Sensors Journal</div>
+                <span class="status accepted">Accepted</span>
+            </div>
+            
+            <div class="publication-item">
+                <h4>PLS Analysis of NOMA-Aided STAR-RIS Network Under Colluding and Non-Colluding Eavesdroppers</h4>
+                <div class="authors">Abdullah Al Mamun, Neji Mensi, Danda B. Rawat</div>
+                <div class="venue">IEEE Consumer Communications & Networking Conference (CCNC), Las Vegas, NV, USA, 9-12 January 2026</div>
+                <span class="status submitted">Submitted</span>
+            </div>
+            
+            <div class="publication-item">
+                <h4>Performance Analysis of Reconfigurable Intelligent Surface in Enhancing Security of Wireless Networks</h4>
+                <div class="authors">M. A. A. Mamun, M. Z. I. Sarkar, A. Alam, and M. R. A. Ruku</div>
+                <div class="venue">3rd International Conference on Advancement in Electrical and Electronic Engineering (ICAEEE), DUET, Bangladesh, 25-27 April, 2024</div>
+                <span class="status accepted">Published</span>
+            </div>
+            
+            <div class="publication-item">
+                <h4>Performance Analysis of RIS-aided Wireless Networks amidst Multiple Eavesdropping</h4>
+                <div class="authors">M. A. A. Mamun, M. Z. I. Sarkar, A. Alam, and M. R. A. Ruku</div>
+                <div class="venue">6th International Conference on Electrical Engineering and Information & Communication Technology (ICEEICT), MIST, Bangladesh, 02-05 May, 2024, pp. 153-156</div>
+                <span class="status accepted">Published</span>
+            </div>
+            
+            <div class="publication-item">
+                <h4>Performance Analysis of Non-Linear Fast Terminal Sliding Mode Controller for Stability Enhancement of DC-DC Boost Converter Using Fuel Cell</h4>
+                <div class="authors">M. M. R. Khondaker, M. A. A. Mamun, M. M. Rana, and S. W. Oli</div>
+                <div class="venue">3rd International Conference on Power, Electrical, Electronics and Industrial Applications (PEEIACON), RUET, Bangladesh, 11-12 July, 2024</div>
+                <span class="status accepted">Published</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            
+            <div class="project-item">
+                <h3>Single phase H-bridge inverter designing and implementation</h3>
+                <div class="year">2024</div>
+                <p>Designed and implemented a single-phase H-bridge inverter for power conversion applications, focusing on efficiency and waveform quality.</p>
+            </div>
+            
+            <div class="project-item">
+                <h3>Generation of different signals using Arduino microcontroller</h3>
+                <div class="year">2023</div>
+                <p>Developed a system using Arduino microcontroller to generate various types of signals for testing and educational purposes in electronics labs.</p>
+            </div>
+            
+            <div class="project-item">
+                <h3>Robotic Arm Control</h3>
+                <div class="year">2022</div>
+                <p>Designed and implemented a control system for a robotic arm, focusing on precision movement and automation capabilities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>MATLAB</li>
+                        <li>C Programming</li>
+                        <li>Mathematica</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Simulation Software</h3>
+                    <ul class="skill-list">
+                        <li>MATLAB Simulink</li>
+                        <li>Cadence Multiphysics</li>
+                        <li>Proteus</li>
+                        <li>Express PCB</li>
+                        <li>PSpice</li>
+                        <li>Microwind</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Application Software</h3>
+                    <ul class="skill-list">
+                        <li>Microsoft Office (Word, Excel & PowerPoint)</li>
+                        <li>LATEX</li>
+                        <li>Visio</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>PLC Programming Software</h3>
+                    <ul class="skill-list">
+                        <li>Siemens LOGO! Soft Comfort</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Graduate Level Courses</h3>
+                    <ul class="skill-list">
+                        <li>ECE 5223: Digital Communications</li>
+                        <li>ECE 5119: Wireless Communication</li>
+                        <li>ECE 5351: Fiberoptic Comm Systems</li>
+                        <li>ECE 5570: Special Topic in Computer Engineering</li>
+                        <li>ECE 5111: Radio Frequency Propagation (Registered in Fall 25)</li>
+                        <li>ECE 5245: Digital Signal Process 1 (Registered in Fall 25)</li>
+                        <li>ECE 5534: Computer Networks 1 (Registered in Fall 25)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>mamun.fit.wireless@gmail.com</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (321) 367 2807</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Melbourne, FL 32901, USA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Abdullah Al Mamun. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add active class to navigation items on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
